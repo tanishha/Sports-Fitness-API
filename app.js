@@ -3,15 +3,26 @@ const app = express();
 const morgan = require('morgan')
 const path = require('path')
 const cors = require ('cors')
+const fileupload = require('express-fileupload');
+const ejs = require('ejs');
 
 //view engine setup
-app.set('view engine', require('ejs'))
+app.locals.moment = require('moment');
+app.set('view engine',"ejs");
 app.set('views', path.join(__dirname, 'views'))
 
 //files setup
-app.use("/images",express.static(path.join(__dirname+"/images")));
+app.use("/images",express.static(path.join(__dirname,"images")));
+app.use("/api/images",express.static(path.join(__dirname,"images")));
+var images = path.join(__dirname+'/images');
+console.log(images);
+app.use(fileupload({
+    useTempFiles: true,
+    tempFileDir: images
+}));
 app.use("/css",express.static(__dirname+"/css"));
-
+app.use("/api/css",express.static(__dirname+"/css"));
+app.use("/api/pages/css",express.static(__dirname+"/css"));
 //db
 require('./db')
 
