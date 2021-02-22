@@ -1,0 +1,77 @@
+<html>
+<head>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+     
+</head>
+<body>
+     <div class="container">
+          <div class="jumbotron ">
+              <a href="/api/admin/fitness/add"><button> Fitness venue</button></a>
+            <a href="/api/admin/product/add"><button>Add Product</button> </a>
+            <a href="/api/admin/view/fitness"><button>View fitness venues</button> </a>
+            <a href="/api/admin/view/sports"><button>View sports venues</button> </a>
+            <a href="/api/admin/view/product"><button>View products</button> </a>
+
+          </div>
+          <h1>Sports Add</h1>
+          <div  id="don" >
+           <form action="/api/admin/sports/add" method="POST" enctype="multipart/form-data" >
+              <div class="form-group">
+                  <input class="form-control" type="text " name="name" placeholder="Name of sports venue" required>
+               </div>
+              <div class="form-group">
+                   <input class="form-control" type="file" name="photo"  required>
+              </div>
+              <div class="form-group">
+               <input class="form-control" type="text" name="location" placeholder="location" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="link" placeholder="link" required>
+               </div>
+              <div class="form-group">
+               <input type="form-control" type="text" placeholder="description" name="description" required >
+          </div>
+             <p>Booking slot for Sports venue</p>
+              <h3>START TIME</h3>
+              <div class="form-group">
+                   <!-- <input type="form-control" type="number" step="0.1"placeholder="start_time_hour" name="start_hour" required></input>: -->
+                   <label for="start">Select a time:</label>
+                     <input type="time" id="start" name="start" >
+                     <input type="radio" id="start_Am" name="start_p" value="AM">
+                        <label for="start_Am">AM</label>
+                     <input type="radio" id="start_Pm" name="start_p" value="PM">
+                        <label for="start_Pm">PM</label><br>
+               </div>
+              <h3>END TIME</h3>
+          
+             <div class="form-group">
+               <!-- <input type="form-control" type="number" placeholder="end time" name="end_hour" required></input>: -->
+               <label for="end">Select a time:</label>
+                     <input type="time" id="end" name="end">
+                     <input type="radio" id="end_Am" name="end_p" value="AM">
+                         <label for="end_Am">Am</label>
+                     <input type="radio" id="end_Pm" name="end_p" value="PM">
+                         <label for="end_Pm">Pm</label><br>
+               
+             </div>
+               <div class="form-group">
+                    <input type="form-control" type="number" placeholder="difference in minutes" name="difference" ></input>
+               </div>
+               <div>
+                    <p>price for booking one slot (sports)</p>
+                    <input type="text" name="booking_price">
+               </div>
+               <div class="form-group">
+                    <p>price for membership</p>
+                    <input type="text" name="membership_price">
+               </div>
+              <div class="form-group">
+                   <button class="btn btn-primary btn-block" style="width:30%;">Submit</button>
+              </div>
+           </form>
+</div>
+          
+</body>
+</html>

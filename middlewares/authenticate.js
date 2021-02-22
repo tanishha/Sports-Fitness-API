@@ -21,7 +21,7 @@ module.exports = function (req, res, next) {
                     return next(err);
                 }
                 if (user) {
-                    req.loggedInUser = user;//db bata bheteko fresh user
+                    req.loggedInUser = user;
                     next();
                 } else {
                     next({
